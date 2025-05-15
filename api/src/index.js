@@ -18,32 +18,32 @@ app.use("/api", apiRouter);
 
 app.get("/future-meals", async (req, res) => {
   const SHOW_TABLES_QUERY = "SELECT * FROM meal WHERE DATE(`when`) > CURDATE()";
-  const tables = await knex.raw(SHOW_TABLES_QUERY);
-  res.json({ tables });
+  const [meal] = await knex.raw(SHOW_TABLES_QUERY);
+  res.json(meal);
 });
 
 app.get("/past-meals", async (req, res) => {
   const SHOW_TABLES_QUERY = "SELECT * FROM meal WHERE DATE(`when`) < CURDATE()";
-  const tables = await knex.raw(SHOW_TABLES_QUERY);
-  res.json({ tables });
+  const [meal] = await knex.raw(SHOW_TABLES_QUERY);
+  res.json(meal);
 });
 
 app.get("/all-meals", async (req, res) => {
   const SHOW_TABLES_QUERY = "SELECT * FROM meal ORDER BY ID";
-  const tables = await knex.raw(SHOW_TABLES_QUERY);
-  res.json({ tables });
+  const [meal] = await knex.raw(SHOW_TABLES_QUERY);
+  res.json(meal);
 });
 
 app.get("/first-meals", async (req, res) => {
   const SHOW_TABLES_QUERY = "SELECT * FROM meal ORDER BY ID LIMIT 1";
-  const tables = await knex.raw(SHOW_TABLES_QUERY);
-  res.json({ tables });
+  const [meal] = await knex.raw(SHOW_TABLES_QUERY);
+  res.json(meal);
 });
 
 app.get("/last-meals", async (req, res) => {
   const SHOW_TABLES_QUERY = "SELECT * FROM meal ORDER BY ID DESC LIMIT 1";
-  const tables = await knex.raw(SHOW_TABLES_QUERY);
-  res.json({ tables });
+  const [meal] = await knex.raw(SHOW_TABLES_QUERY);
+  res.json(meal);
 });
 
 app.listen(process.env.PORT, () => {
