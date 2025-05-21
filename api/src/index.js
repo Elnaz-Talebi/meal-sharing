@@ -34,13 +34,13 @@ app.get("/all-meals", async (req, res) => {
   res.json(meal);
 });
 
-app.get("/first-meals", async (req, res) => {
+app.get("/first-meal", async (req, res) => {
   const SHOW_TABLES_QUERY = "SELECT * FROM meal ORDER BY ID LIMIT 1";
   const [meal] = await knex.raw(SHOW_TABLES_QUERY);
   res.json(meal);
 });
 
-app.get("/last-meals", async (req, res) => {
+app.get("/last-meal", async (req, res) => {
   const SHOW_TABLES_QUERY = "SELECT * FROM meal ORDER BY ID DESC LIMIT 1";
   const [meal] = await knex.raw(SHOW_TABLES_QUERY);
   res.json(meal);
