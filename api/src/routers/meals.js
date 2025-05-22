@@ -24,12 +24,16 @@ mealsRouter.get("/:id", async (req, res) => {
   }
 });
 
-//update put
 mealsRouter.put("/:id", async (req, res) => {
   const data = req.body;
   const id = req.params.id;
-  await knex("meal").where("id", id).update(data);
-  res.status(StatusCodes.OK).json({ message: "Meal updated successfully." });
+  const [meal] = await knex("meal").select().where("id", id);
+  if (!meal) {
+    res.status(StatusCodes.NOT_FOUND).json({ message: "Meal is not exist." });
+  } else {
+    await knex("meal").where("id", id).update(data);
+    res.status(StatusCodes.OK).json({ message: "Meal update successfully." });
+  }
 });
 
 mealsRouter.delete("/:id", async (req, res) => {
