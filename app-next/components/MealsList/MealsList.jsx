@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import api from "@/utils/api";
-import styles from "./MealsList.css";
+import "./MealsList.css";
+import Meal from "./Meal.jsx";
 
 export default function MealsList() {
   const [Meals, setMeals] = useState();
@@ -17,22 +18,14 @@ export default function MealsList() {
   return (
     <>
       <section>
-        <h1 className={styles.meal_title}>Meals</h1>
+        <h1 className="meal_title">Meals</h1>
 
         {Meals?.length ? (
-          <>
-            {Meals.map((item) => (
-              <>
-                <div className="meal_item" key={item.id}>
-                  <span className="meal_label">Title:</span> {item.title} <br />
-                  <span className="meal_label">Description:</span>{" "}
-                  {item.description} <br />
-                  <span className="meal_label">Price:</span> {item.price} DKK
-                  <hr />
-                </div>
-              </>
+          <div className="meals-grid">
+            {Meals.map((meal) => (
+              <Meal key={meal.id} meal={meal} />
             ))}
-          </>
+          </div>
         ) : (
           <p>Loading meals...</p>
         )}
