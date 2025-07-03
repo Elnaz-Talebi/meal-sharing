@@ -4,7 +4,7 @@ import api from "@/utils/api";
 import "./MealsList.css";
 import Meal from "./Meal.jsx";
 
-export default function MealsList() {
+export default function MealsList({ limit }) {
   const [Meals, setMeals] = useState();
 
   useEffect(() => {
@@ -15,21 +15,22 @@ export default function MealsList() {
     }
     fetchMeals();
   }, []);
-  return (
-    <>
-      <section>
-        <h1 className="meal_title">Meals</h1>
 
-        {Meals?.length ? (
-          <div className="meals-grid">
-            {Meals.map((meal) => (
-              <Meal key={meal.id} meal={meal} />
-            ))}
-          </div>
-        ) : (
-          <p>Loading meals...</p>
-        )}
-      </section>
-    </>
+  const mealsToShow = limit ? Meals?.slice(0, limit) : Meals;
+
+  return (
+    <section>
+      <h1 className="meal_title">Meals</h1>
+
+      {mealsToShow?.length ? (
+        <div className="meals-grid">
+          {mealsToShow.map((meal) => (
+            <Meal key={meal.id} meal={meal} />
+          ))}
+        </div>
+      ) : (
+        <p>Loading meals...</p>
+      )}
+    </section>
   );
 }

@@ -124,16 +124,33 @@ mealsRouter.post("/", async (req, res) => {
 
 mealsRouter.get("/:id", async (req, res) => {
   try {
-    const id = req.params.id;
+    const id = parseInt(req.params.id);
+
     const [meal] = await knex("meal").select().where("id", id);
     if (!meal) {
-      res.status(StatusCodes.NOT_FOUND).json({ message: "Meal is not exist." });
-    } else {
-      res.json(meal);
+      return res
+        .status(StatusCodes.NOT_FOUND)
+        .json({ message: "Meal does not exist." });
     }
+
+    const [reservationData] = await knex("reservation")
+      .where("meal_id", id)
+      .sum("number_of_guests as total_reserved");
+
+    const totalReserved = reservationData.total_reserved || 0;
+
+    const enrichedMeal = {
+      ...meal,
+      total_reservations: totalReserved,
+      available_reservations: meal.max_reservations - totalReserved,
+    };
+
+    res.json(enrichedMeal);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Internal server error" });
+    res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ error: "Internal server error" });
   }
 });
 

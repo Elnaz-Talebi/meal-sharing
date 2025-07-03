@@ -1,0 +1,43 @@
+.meal-details-container {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: left;
+}
+
+.reservation-form {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #fff7f2;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.reservation-form input,
+.reservation-form select {
+  width: 90%;
+  padding: 0.5rem;
+  margin-top: 4px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+.reservation-form button {
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #ffc2a1;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.reservation-form button:hover {
+  background-color: #e19774;
+}
