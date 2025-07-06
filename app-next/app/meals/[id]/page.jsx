@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import api from "@/utils/api";
 
 export default function MealDetailsPage() {
   const { id } = useParams();
@@ -13,7 +14,8 @@ export default function MealDetailsPage() {
 
   async function fetchMeal() {
     try {
-      const response = await fetch(`http://localhost:3001/api/meals/${id}`);
+      const response = await fetch(api(`/meals/${id}`));
+
       const data = await response.json();
       setMeal(data);
     } catch (error) {
@@ -65,14 +67,11 @@ export default function MealDetailsPage() {
               };
 
               try {
-                const response = await fetch(
-                  "http://localhost:3001/api/reservations",
-                  {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(reservation),
-                  }
-                );
+                const response = await fetch(api("/reservations"), {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(reservation),
+                });
 
                 if (response.ok) {
                   alert("Reservation successful!");
