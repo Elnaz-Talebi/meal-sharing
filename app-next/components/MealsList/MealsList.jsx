@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import api from "@/utils/api";
 import "./MealsList.css";
@@ -9,10 +10,21 @@ export default function MealsList({ limit }) {
 
   useEffect(() => {
     async function fetchMeals() {
-      const result = await fetch(api("/meals"));
-      const jsonResult = await result.json();
-      setMeals(jsonResult);
+      try {
+        const result = await fetch(api("/meals"));
+        const jsonResult = await result.json();
+
+        if (jsonResult.length === 0) {
+          setMeals([]);
+        } else {
+          setMeals(jsonResult);
+        }
+      } catch (err) {
+        console.error("Error fetching meals:", err);
+        setMeals([]);
+      }
     }
+
     fetchMeals();
   }, []);
 
@@ -22,14 +34,16 @@ export default function MealsList({ limit }) {
     <section>
       <h1 className="meal_title">Meals</h1>
 
-      {mealsToShow?.length ? (
+      {mealsToShow === undefined ? (
+        <p>Loading meals...</p>
+      ) : mealsToShow.length === 0 ? (
+        <p>No meals available.</p>
+      ) : (
         <div className="meals-grid">
           {mealsToShow.map((meal) => (
             <Meal key={meal.id} meal={meal} />
           ))}
         </div>
-      ) : (
-        <p>Loading meals...</p>
       )}
     </section>
   );
