@@ -1,20 +1,21 @@
-import HYFLogo from "@/assets/hyf.svg";
-import Image from "next/image";
 import "./HomePage.css";
 import MealsList from "../MealsList/MealsList";
+import Link from "next/link";
+import Header from "../Header";
+import Footer from "../Footer";
 
-// Feel free to replace the content of this component with your own
 function HomePage() {
   return (
-    <>
-      <a href="https://www.hackyourfuture.dk/" target="_blank" className="link">
-        <Image src={HYFLogo.src} width={HYFLogo.width} height={HYFLogo.height} className="logo" />
-      </a>
-      <MealsList/>
-      <a href="/nested" className="link">
-        <span className="message">Go to the nested page</span>
-      </a>
-    </>
+    <div className="home-page">
+      <Header />
+      <h1>Welcome to Meal Sharing</h1>
+      <h2>Enjoy delicious meals from our community</h2>
+      <MealsList limit={3} />
+      <Link href="/meals">
+        <button>See All Meals</button>
+      </Link>
+      <Footer />
+    </div>
   );
 }
 

@@ -18,7 +18,7 @@ apiRouter.use("/meals", mealsRouter);
 apiRouter.use("/reservations", reservationsRouter);
 
 // This nested router example can also be replaced with your own sub-router
-apiRouter.use("/nested", nestedRouter);
+// apiRouter.use("/nested", nestedRouter);
 
 app.use("/api", apiRouter);
 

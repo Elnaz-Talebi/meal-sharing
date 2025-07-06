@@ -1,0 +1,25 @@
+.meal-card {
+  background-color: #fff3ec;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(179, 149, 134, 0.4);
+  margin: 1rem;
+}
+
+.meal-actions {
+  margin-top: 1rem;
+}
+
+.review-button {
+  background-color: #eb9e74a6;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 2rem 0.1rem 1rem 0rem;
+}
+
+.review-button:hover {
+  background-color: #f4c2a0;
+}
