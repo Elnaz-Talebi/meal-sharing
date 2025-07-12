@@ -20,69 +20,23 @@ h2 {
   text-align: center;
   margin-bottom: 30px;
 }
-button {
+.homepage-button {
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
   font-size: 13px;
-  background-color: #ffd6c2c7;
+  background-color: #c7a89a;
   border: none;
   cursor: pointer;
-  border-radius: 1.3rem;
+  border-radius: 0.3rem;
+  font-weight: bold;
   text-decoration: none;
 }
 
-button:hover {
-  background-color: #b39586c7;
+.homepage-button:hover {
+  background-color: #c59884;
 }
 a {
   text-decoration: none;
   color: inherit;
-}
-.main-header {
-  background-color: #ffdbca;
-  margin: 3rem 4rem 2rem 4rem;
-  padding: 10px 30px 10px 3px;
-  text-align: center;
-  border-radius: 3rem;
-
-  box-shadow: 0px 10px 30px rgba(179, 149, 134, 0.78);
-}
-
-.nav-menu {
-  list-style: none;
-  display: flex;
-  justify-content: right;
-  gap: 2rem;
-  margin-right: 3rem;
-  padding: 0;
-}
-
-.nav-menu li {
-  font-size: 1.1rem;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-
-.nav-menu a:hover {
-  color: #c45515;
-}
-
-.main-footer {
-  background-color: #ffdbca;
-  padding: 1rem 0 0 0;
-  display: flex;
-  align-items: center;
-  font-size: 0.9rem;
-  box-shadow: -10px -10px 20px #b39586c7;
-  margin: 40px 0 0 0;
-}
-.footer-logo {
-  height: 30px;
-  width: auto;
-  padding: 0 28rem 0 2rem;
 }

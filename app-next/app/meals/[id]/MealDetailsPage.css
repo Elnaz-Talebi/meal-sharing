@@ -7,7 +7,7 @@
 
 .reservation-form {
   margin-top: 2rem;
-  padding: 1rem;
+  padding: 4rem;
   background-color: #fff7f2;
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -15,8 +15,14 @@
 
 .reservation-form label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-weight: 500;
+}
+
+.reservation-form label.inline-label {
+  display: inline-block;
+  width: 120px;
+  margin-right: 10px;
 }
 
 .reservation-form input,
@@ -24,20 +30,47 @@
   width: 90%;
   padding: 0.5rem;
   margin-top: 4px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
+}
+
+.reservation-form input[type="tel"] {
+  width: 200px;
 }
 
 .reservation-form button {
   padding: 8px 16px;
   font-size: 14px;
-  background-color: #ffc2a1;
+  background-color: #c7a89a;
   border: none;
-  border-radius: 0.8rem;
+  border-radius: 0.3rem;
   cursor: pointer;
 }
 
 .reservation-form button:hover {
-  background-color: #e19774;
+  background-color: #c59884;
+}
+
+.meal-image {
+  width: 300px;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.meal-details-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.meal-info {
+  flex: 1;
+}
+
+.meal-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }

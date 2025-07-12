@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 import api from "@/utils/api";
 
 export default function MealDetailsPage() {
@@ -32,16 +33,30 @@ export default function MealDetailsPage() {
   if (loading) return <p>Loading...</p>;
   if (!meal) return <p>Meal not found</p>;
 
+  const imagePath = `/images/meals/${meal.title.replace(/\s+/g, "-")}.png`;
+
   return (
     <>
       <Header />
 
       <div className="meal-details-container">
-        <h1>{meal.title}</h1>
-        <p>Description: {meal.description}</p>
-        <p>Price: {meal.price}</p>
-        <p>Date: {meal.when}</p>
-        <p>Max Reservations: {meal.max_reservations}</p>
+        <div className="meal-details-layout">
+          <div className="meal-info">
+            <h1>{meal.title}</h1>
+            <p>Description: {meal.description}</p>
+            <p>Price: {meal.price}</p>
+            <p>Max Reservations: {meal.max_reservations}</p>
+          </div>
+          <div className="meal-image-container">
+            <Image
+              src={imagePath}
+              alt={meal.title}
+              width={300}
+              height={200}
+              className="meal-image"
+            />
+          </div>
+        </div>
 
         {meal.available_reservations > 0 ? (
           <form

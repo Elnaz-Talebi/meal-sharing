@@ -12,7 +12,7 @@ function HomePage() {
       <h2>Enjoy delicious meals from our community</h2>
       <MealsList limit={3} />
       <Link href="/meals">
-        <button>See All Meals</button>
+        <button className="homepage-button">See All Meals</button>
       </Link>
       <Footer />
     </div>
