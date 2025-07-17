@@ -5,13 +5,32 @@ import api from "@/utils/api";
 import "./MealsList.css";
 import Meal from "./Meal.jsx";
 
-export default function MealsList({ limit }) {
+export default function MealsList({ limit, searchTitle, sortKey, sortDir }) {
   const [Meals, setMeals] = useState();
 
   useEffect(() => {
     async function fetchMeals() {
       try {
-        const result = await fetch(api("/meals"));
+        let url = api("/meals");
+        const params = new URLSearchParams();
+
+        if (searchTitle) {
+          params.append("title", searchTitle);
+        }
+
+        if (sortKey) {
+          params.append("sortKey", sortKey);
+        }
+
+        if (sortDir) {
+          params.append("sortDir", sortDir);
+        }
+
+        if (params.toString()) {
+          url += `?${params.toString()}`;
+        }
+
+        const result = await fetch(url);
         const jsonResult = await result.json();
 
         if (jsonResult.length === 0) {
@@ -26,7 +45,7 @@ export default function MealsList({ limit }) {
     }
 
     fetchMeals();
-  }, []);
+  }, [searchTitle, sortKey, sortDir]);
 
   const mealsToShow = limit ? Meals?.slice(0, limit) : Meals;
 

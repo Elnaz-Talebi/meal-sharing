@@ -79,7 +79,7 @@ mealsRouter.get("/", async (req, res) => {
     const sortDir = queryParams.sortDir;
 
     if (sortKey) {
-      if (["when", "max_reservations", "price"].includes(sortKey)) {
+      if (["title", "when", "max_reservations", "price"].includes(sortKey)) {
         if (sortDir) {
           if (["asc", "desc"].includes(sortDir)) {
             query = query.orderBy(sortKey, sortDir);
@@ -94,7 +94,7 @@ mealsRouter.get("/", async (req, res) => {
       } else {
         return res.status(StatusCodes.BAD_REQUEST).json({
           error:
-            "sortKey must be one of 'when', 'max_reservations', or 'price'.",
+            "sortKey must be one of 'title', 'when', 'max_reservations', or 'price'.",
         });
       }
     } else if (sortDir) {

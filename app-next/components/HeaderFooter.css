@@ -1,9 +1,9 @@
 .main-header {
-  background-color: #ffdbca;
+  background-color: #fde7dd;
   margin: 3rem 4rem 2rem 4rem;
   padding: 10px 30px 10px 3px;
   text-align: center;
-  border-radius: 3rem;
+  border-radius: 0.5rem;
 
   box-shadow: 0px 10px 30px rgba(179, 149, 134, 0.78);
 }
@@ -32,17 +32,34 @@
 }
 
 .main-footer {
-  background-color: #ffdbca;
-  padding: 1rem 0 0 0;
+  background-color: #fde7dd;
+  border-radius: 0.5rem;
+  padding: 0.7rem 0;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   font-size: 0.9rem;
   box-shadow: -10px -10px 20px #b39586c7;
   margin: 40px 0 0 0;
+  min-height: 45px;
+  position: relative;
 }
 
 .footer-logo {
-  height: 30px;
+  height: 40px;
   width: auto;
-  padding: 0 28rem 0 2rem;
+  padding: 0 2rem 0 2rem;
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+}
+
+.main-footer p {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: fit-content;
 }
