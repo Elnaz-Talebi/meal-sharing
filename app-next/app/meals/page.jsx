@@ -6,8 +6,23 @@ import MealsList from "@/components/MealsList/MealsList";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import "./meals.css";
+import { Suspense } from "react";
 
 export default function MealsPage() {
+  return (
+    <Suspense
+      fallback={
+        <main style={{ padding: "2rem" }}>
+          <p>Loading...</p>
+        </main>
+      }
+    >
+      <MealsPageContent />
+    </Suspense>
+  );
+}
+
+function MealsPageContent() {
   const searchParams = useSearchParams();
   const title = searchParams.get("title") || "";
   const [sortKey, setSortKey] = useState("");

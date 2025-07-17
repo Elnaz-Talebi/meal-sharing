@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import api from "@/utils/api";
 import "../meals/[id]/MealDetailsPage.css";
@@ -8,6 +8,20 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function ReservationPage() {
+  return (
+    <Suspense
+      fallback={
+        <main style={{ padding: "2rem" }}>
+          <p>Loading...</p>
+        </main>
+      }
+    >
+      <ReservationPageContent />
+    </Suspense>
+  );
+}
+
+function ReservationPageContent() {
   const searchParams = useSearchParams();
   const mealId = searchParams.get("mealId");
   const [mealTitle, setMealTitle] = useState("");
