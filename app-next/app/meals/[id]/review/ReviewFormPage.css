@@ -1,6 +1,6 @@
 .review-form-container {
   max-width: 600px;
-  margin: 3rem auto;
+  margin: 3rem auto 8.7rem auto;
   padding: 2rem;
   background-color: #fff3ec;
   border-radius: 1rem;
@@ -34,7 +34,7 @@
 }
 
 .review-form button {
-  background-color: #ffd6c2;
+  background-color: #c7a89a;
   border: none;
   padding: 0.7rem 1.5rem;
   border-radius: 0.5rem;
@@ -45,5 +45,5 @@
 }
 
 .review-form button:hover {
-  background-color: #f4c2a0;
+  background-color: #c59884;
 }

@@ -1,0 +1,35 @@
+.searchbox-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.searchbox-input {
+  padding: 0.5rem 1rem;
+  border-radius: 5px 0 0 5px;
+  font-size: 1rem;
+  outline: none;
+  border: 1px solid #ced4da;
+}
+
+.searchbox-button {
+  padding: 0.5rem 1.2rem;
+  border: 1px solid #ced4da;
+  background-color: #c7a89a;
+  color: rgb(8, 8, 8);
+  border-radius: 0 5px 5px 0;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.searchbox-button:hover {
+  background-color: #c59884;
+}
+.searchbox-input:focus {
+  outline: none;
+  border-color: #0f0f0f;
+}
+.searchbox-button:focus {
+  outline: none;
+  border-color: #0f0f0f;
+}
